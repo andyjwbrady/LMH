@@ -118,6 +118,27 @@
   .log .num-cell{font-family:'IBM Plex Mono',monospace;white-space:nowrap;}
   .log .desc{color:var(--ink-soft);font-size:12.5px;}
 
+  @media(max-width:640px){
+    .log thead{display:none;}
+    .log, .log tbody, .log tr, .log td{display:block;width:100%;}
+    .log tr{padding:14px 0;border-bottom:1px solid var(--line);}
+    .log tr:last-child{border-bottom:none;}
+    .log td{border-bottom:none;padding:3px 0 !important;}
+    .log td[style*="padding-left"]{padding-left:0 !important;}
+    .log td.num-cell{white-space:normal;}
+    .log td:not(:empty):before{
+      content:attr(data-label);
+      display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;
+      text-transform:uppercase;letter-spacing:.07em;color:var(--ink-soft);
+      margin-top:8px;margin-bottom:2px;
+    }
+    .log tr td:first-child:before{margin-top:0;}
+    .log .name{margin-top:2px;}
+    .log-dark tr{border-bottom-color:#55503f;}
+    .log-dark td:before{color:#A8C4B8;}
+    .callout .choice{flex-direction:column;}
+  }
+
   /* ===== TWO COL ===== */
   .twocol{display:grid;grid-template-columns:1.15fr .85fr;gap:24px;}
   @media(max-width:800px){.twocol{grid-template-columns:1fr;}}
@@ -240,37 +261,37 @@
         </thead>
         <tbody>
           <tr>
-            <td style="padding-left:20px;">
+            <td style="padding-left:20px;" data-label="Route">
               <div class="name">Stretton Skyline route</div>
               <div class="desc">Ragleth, Caer Caradoc, The Lawley, back up the Long Mynd — again, with Emily</div>
               <span class="tag">HOME TURF</span>
             </td>
-            <td class="desc">Follows the FRA fell race course, 5 major climbs</td>
-            <td class="num-cell">~19mi / 30km</td>
-            <td class="num-cell">~1,370m</td>
-            <td class="desc">Self-guided, whenever suits — no need to chase a race entry</td>
+            <td class="desc" data-label="Terrain">Follows the FRA fell race course, 5 major climbs</td>
+            <td class="num-cell" data-label="Distance">~19mi / 30km</td>
+            <td class="num-cell" data-label="Climb">~1,370m</td>
+            <td class="desc" data-label="Timing">Self-guided, whenever suits — no need to chase a race entry</td>
           </tr>
           <tr>
-            <td style="padding-left:20px;">
+            <td style="padding-left:20px;" data-label="Route">
               <div class="name">LDWA Tour des Marches</div>
               <div class="desc">Wistanstow → Clun → Bishop's Castle → Wistanstow</div>
               <span class="tag">PEAK WEEK</span>
             </td>
-            <td class="desc">Undulating, runnable — distance over climb</td>
-            <td class="num-cell">26mi / 42km <span style="color:var(--ink-soft);">(18 or 12mi options)</span></td>
-            <td class="num-cell">modest</td>
-            <td class="desc">12 Sep — the long day already pencilled in as peak training effort, 3 weeks before race day</td>
+            <td class="desc" data-label="Terrain">Undulating, runnable — distance over climb</td>
+            <td class="num-cell" data-label="Distance">26mi / 42km <span style="color:var(--ink-soft);">(18 or 12mi options)</span></td>
+            <td class="num-cell" data-label="Climb">modest</td>
+            <td class="desc" data-label="Timing">12 Sep — the long day already pencilled in as peak training effort, 3 weeks before race day</td>
           </tr>
           <tr>
-            <td style="padding-left:20px;">
+            <td style="padding-left:20px;" data-label="Route">
               <div class="name">Edale Skyline route</div>
               <div class="desc">Lose Hill, Mam Tor, Brown Knoll, Kinder Low, Win Hill</div>
               <span class="tag">AWAY DAY</span>
             </td>
-            <td class="desc">Peak District — rougher, boggier than Shropshire</td>
-            <td class="num-cell">~21mi / 34km</td>
-            <td class="num-cell">~1,300m</td>
-            <td class="desc">The race runs in March anyway — good excuse for a self-guided long day, worth an early alarm from Ironbridge</td>
+            <td class="desc" data-label="Terrain">Peak District — rougher, boggier than Shropshire</td>
+            <td class="num-cell" data-label="Distance">~21mi / 34km</td>
+            <td class="num-cell" data-label="Climb">~1,300m</td>
+            <td class="desc" data-label="Timing">The race runs in March anyway — good excuse for a self-guided long day, worth an early alarm from Ironbridge</td>
           </tr>
         </tbody>
       </table>
@@ -292,40 +313,40 @@
           <thead><tr><th>Date</th><th>Session</th><th>Dist.</th><th>Climb</th></tr></thead>
           <tbody>
             <tr>
-              <td class="num-cell">10 May</td>
-              <td><div class="name">Sandstone Trail Challenge</div><div class="desc">Lifetime 50K PR</div><span class="tag">RACE</span></td>
-              <td class="num-cell">51.7km</td>
-              <td class="num-cell">1,020m</td>
+              <td class="num-cell" data-label="Date">10 May</td>
+              <td data-label="Session"><div class="name">Sandstone Trail Challenge</div><div class="desc">Lifetime 50K PR</div><span class="tag">RACE</span></td>
+              <td class="num-cell" data-label="Dist.">51.7km</td>
+              <td class="num-cell" data-label="Climb">1,020m</td>
             </tr>
             <tr>
-              <td class="num-cell">25 Apr</td>
-              <td><div class="name">Corvedale Cake Run</div><div class="desc">Lilywood Hill</div></td>
-              <td class="num-cell">35.7km</td>
-              <td class="num-cell">943m</td>
+              <td class="num-cell" data-label="Date">25 Apr</td>
+              <td data-label="Session"><div class="name">Corvedale Cake Run</div><div class="desc">Lilywood Hill</div></td>
+              <td class="num-cell" data-label="Dist.">35.7km</td>
+              <td class="num-cell" data-label="Climb">943m</td>
             </tr>
             <tr>
-              <td class="num-cell">10 Apr</td>
-              <td><div class="name">Stretton Summits Round</div><div class="desc">Nine summits, including Long Mynd — Pole Bank itself</div></td>
-              <td class="num-cell">29.4km</td>
-              <td class="num-cell">1,274m</td>
+              <td class="num-cell" data-label="Date">10 Apr</td>
+              <td data-label="Session"><div class="name">Stretton Summits Round</div><div class="desc">Nine summits, including Long Mynd — Pole Bank itself</div></td>
+              <td class="num-cell" data-label="Dist.">29.4km</td>
+              <td class="num-cell" data-label="Climb">1,274m</td>
             </tr>
             <tr>
-              <td class="num-cell">16 May</td>
-              <td><div class="name">Adidas Terrex Half Marathon Trail</div><div class="desc">Six days after the 50K</div><span class="tag">RACE</span></td>
-              <td class="num-cell">25.8km</td>
-              <td class="num-cell">681m</td>
+              <td class="num-cell" data-label="Date">16 May</td>
+              <td data-label="Session"><div class="name">Adidas Terrex Half Marathon Trail</div><div class="desc">Six days after the 50K</div><span class="tag">RACE</span></td>
+              <td class="num-cell" data-label="Dist.">25.8km</td>
+              <td class="num-cell" data-label="Climb">681m</td>
             </tr>
             <tr>
-              <td class="num-cell">5 Jul</td>
-              <td><div class="name">Lawley Leap</div><div class="desc">Six summits, 9 PRs — running back at full tilt</div></td>
-              <td class="num-cell">21.5km</td>
-              <td class="num-cell">950m</td>
+              <td class="num-cell" data-label="Date">5 Jul</td>
+              <td data-label="Session"><div class="name">Lawley Leap</div><div class="desc">Six summits, 9 PRs — running back at full tilt</div></td>
+              <td class="num-cell" data-label="Dist.">21.5km</td>
+              <td class="num-cell" data-label="Climb">950m</td>
             </tr>
             <tr>
-              <td class="num-cell">17 Apr</td>
-              <td><div class="name">Morning Trail Run</div><div class="desc">Steady mid-week long run</div></td>
-              <td class="num-cell">22.2km</td>
-              <td class="num-cell">534m</td>
+              <td class="num-cell" data-label="Date">17 Apr</td>
+              <td data-label="Session"><div class="name">Morning Trail Run</div><div class="desc">Steady mid-week long run</div></td>
+              <td class="num-cell" data-label="Dist.">22.2km</td>
+              <td class="num-cell" data-label="Climb">534m</td>
             </tr>
           </tbody>
         </table>
@@ -368,11 +389,11 @@
         <table class="log">
           <thead><tr><th>Zone</th><th>BPM</th><th>For the Hike</th></tr></thead>
           <tbody>
-            <tr><td class="num-cell">Z1</td><td class="num-cell">&lt;121</td><td class="desc">Recovery — most of the back half of an 80km day</td></tr>
-            <tr><td class="num-cell">Z2</td><td class="num-cell">122–151</td><td class="desc">All-day aerobic — the target zone for climbing sections</td></tr>
-            <tr><td class="num-cell">Z3</td><td class="num-cell">152–166</td><td class="desc">Tempo — fine in short bursts, not sustainable at km 60</td></tr>
-            <tr><td class="num-cell">Z4</td><td class="num-cell">167–180</td><td class="desc">Threshold</td></tr>
-            <tr><td class="num-cell">Z5</td><td class="num-cell">181+</td><td class="desc">Max</td></tr>
+            <tr><td class="num-cell" data-label="Zone">Z1</td><td class="num-cell" data-label="BPM">&lt;121</td><td class="desc" data-label="For the Hike">Recovery — most of the back half of an 80km day</td></tr>
+            <tr><td class="num-cell" data-label="Zone">Z2</td><td class="num-cell" data-label="BPM">122–151</td><td class="desc" data-label="For the Hike">All-day aerobic — the target zone for climbing sections</td></tr>
+            <tr><td class="num-cell" data-label="Zone">Z3</td><td class="num-cell" data-label="BPM">152–166</td><td class="desc" data-label="For the Hike">Tempo — fine in short bursts, not sustainable at km 60</td></tr>
+            <tr><td class="num-cell" data-label="Zone">Z4</td><td class="num-cell" data-label="BPM">167–180</td><td class="desc" data-label="For the Hike">Threshold</td></tr>
+            <tr><td class="num-cell" data-label="Zone">Z5</td><td class="num-cell" data-label="BPM">181+</td><td class="desc" data-label="For the Hike">Max</td></tr>
           </tbody>
         </table>
         <div class="annot">Worth a real lab or field test before race day — an age-estimated max heart rate can be well off, and it's the number the whole pacing plan for a 12+ hour day would hang off.</div>
@@ -382,13 +403,13 @@
         <div class="callout" style="margin-bottom:16px;">
           <h3>Run pace zones</h3>
           <p>From recent performance predictions (best effort: 5K in 20:52, estimated).</p>
-          <table class="log" style="color:var(--paper);">
+          <table class="log log-dark" style="color:var(--paper);">
             <tbody>
-              <tr><td class="num-cell" style="border-color:#55503f;">Z1 Easy</td><td class="num-cell" style="border-color:#55503f;">slower than 5:49/km</td></tr>
-              <tr><td class="num-cell" style="border-color:#55503f;">Z2</td><td class="num-cell" style="border-color:#55503f;">5:00–5:49/km</td></tr>
-              <tr><td class="num-cell" style="border-color:#55503f;">Z3</td><td class="num-cell" style="border-color:#55503f;">4:29–5:00/km</td></tr>
-              <tr><td class="num-cell" style="border-color:#55503f;">Z4</td><td class="num-cell" style="border-color:#55503f;">4:12–4:29/km</td></tr>
-              <tr><td class="num-cell" style="border-color:#55503f;">Z5+</td><td class="num-cell" style="border-color:#55503f;">faster than 4:12/km</td></tr>
+              <tr><td class="num-cell" style="border-color:#55503f;" data-label="Zone">Z1 Easy</td><td class="num-cell" style="border-color:#55503f;" data-label="Pace">slower than 5:49/km</td></tr>
+              <tr><td class="num-cell" style="border-color:#55503f;" data-label="Zone">Z2</td><td class="num-cell" style="border-color:#55503f;" data-label="Pace">5:00–5:49/km</td></tr>
+              <tr><td class="num-cell" style="border-color:#55503f;" data-label="Zone">Z3</td><td class="num-cell" style="border-color:#55503f;" data-label="Pace">4:29–5:00/km</td></tr>
+              <tr><td class="num-cell" style="border-color:#55503f;" data-label="Zone">Z4</td><td class="num-cell" style="border-color:#55503f;" data-label="Pace">4:12–4:29/km</td></tr>
+              <tr><td class="num-cell" style="border-color:#55503f;" data-label="Zone">Z5+</td><td class="num-cell" style="border-color:#55503f;" data-label="Pace">faster than 4:12/km</td></tr>
             </tbody>
           </table>
         </div>
